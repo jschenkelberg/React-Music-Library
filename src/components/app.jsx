@@ -3,6 +3,7 @@ import Api from './api';
 import axios from 'axios';
 import Songs from './MusicTable';
 import "bootstrap/dist/css/bootstrap.min.css";
+import SongForm from './SongForm';
 
 
 
@@ -24,6 +25,13 @@ class App extends Component {
         }));  
         
     }
+    
+    async addSong(e) {
+        let addSong = await axios.post("http://127.0.0.1:8000/music/")
+        .then(response => this.setState ({
+            songs: response.data
+        }));
+    }
 
     delete = (id) => {
     
@@ -42,8 +50,9 @@ class App extends Component {
         return ( 
             <div>
                 placeholder
-                <Api />
+                <SongForm />
                 <Songs songs={this.state.songs} delete={this.delete} />
+                
             </div>
          );
     }
