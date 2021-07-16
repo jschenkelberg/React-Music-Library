@@ -1,23 +1,26 @@
 import React, { Component } from 'react';
+import Api from './api';
+import MusicTable from './MusicTable';
 
-
-class MusicTable extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
+const Songs = ({ songs }) => {
     return (
-      <div class="container" style="text-align: left">
-        <table class="table table-striped">
-          <thead title="Music Library"></thead>
-          <tbody>
-            <tr></tr>
-          </tbody>
-        </table>
-      </div>
-    );
-  }
-}
+        <div>
+            <center><h1>Music Library</h1></center>
+            {songs.map((song) => (
+                <div className="table table-striped">
+                <td>{song.id}</td>
+                <td>{song.title}</td>
+                <td>{song.artist}</td>
+                <td>{song.album}</td>
+                <td>{song.release_date}</td>
+                <td>{song.genre}</td>
+                <td>{song.likes}</td>
+        
+        </div>
+            ))}
+        </div>
+    )
 
-export default MusicTable;
+};
+
+export default Songs;

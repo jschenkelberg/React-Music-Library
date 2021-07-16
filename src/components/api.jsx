@@ -13,8 +13,8 @@ class Api extends Component {
 
     async getAllMusic() {
         try{
-        let response = await axios.get("http://127.0.0.1:8000/music/");
-        console.log(response.data)
+        let getAllResponse = await axios.get("http://127.0.0.1:8000/music/");
+        console.log(getAllResponse.data)
         }
         catch (ex) {
             console.log('Error.');
