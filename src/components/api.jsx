@@ -21,7 +21,9 @@ class Api extends Component {
         }
     }
 
-    
+    deleteSong(songId){
+        return axios.delete("http://127.0.0.1:8000/music/"  + songId);
+    }
 
 
 
