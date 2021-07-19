@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Api from './api';
-import MusicTable from './MusicTable';
+
+
 
 const Songs = (props) => {
     return (
@@ -22,7 +22,7 @@ const Songs = (props) => {
             {props.songs.map((song) => (
                 <tr>
                 <td key={song.id}></td>
-                <td scope="col">{song.title}</td>
+                <td>{song.title}</td>
                 <td>{song.artist}</td>
                 <td>{song.album}</td>
                 <td>{song.release_date}</td>

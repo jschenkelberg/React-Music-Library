@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Api from './api';
 import axios from 'axios';
 import Songs from './MusicTable';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -26,21 +25,22 @@ class App extends Component {
         
     }
     
-    async addSong(e) {
-        let addSong = await axios.post("http://127.0.0.1:8000/music/")
-        .then(response => this.setState ({
+    addSong = (e) => {
+        axios.post("http://127.0.0.1:8000/music/")
+        .then(response => this.setState 
+            ({
             songs: response.data
-        }));
+        })
+            
+        );
+        
     }
 
     delete = (id) => {
-    
-        axios.delete(`http://127.0.0.1:8000/music/${id}/`)
-        
+        axios.delete(`http://127.0.0.1:8000/music/${id}/`)        
         .then(res => {
             console.log(res);
-            console.log(res.data);
-      
+            console.log(res.data);      
           })
           console.log(this)
           this.setState({})
@@ -50,7 +50,7 @@ class App extends Component {
         return ( 
             <div>
                 placeholder
-                <SongForm />
+                <SongForm addSong={this.addSong}/>
                 <Songs songs={this.state.songs} delete={this.delete} />
                 
             </div>

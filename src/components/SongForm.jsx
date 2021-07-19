@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+
 class SongForm extends Component {
   constructor(props) {
     super(props);
@@ -11,13 +12,19 @@ class SongForm extends Component {
         SongAlbum:'',
         SongReleaseDate:'',
         SongGenre:'',
-    };
+    }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    
+      }
 
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         });
-    }
+        console.log (event.target.value)
+      }
+
 
     handleSubmit = (event) => {
         event.preventDefault();
@@ -42,8 +49,7 @@ class SongForm extends Component {
             });
     }
 
-
-  }
+  
   render() {
     return (
       <React.Fragment>
@@ -54,24 +60,22 @@ class SongForm extends Component {
               <div className="form-group">
                 <label>Song Title</label>
                 <input type="text" className="form-control" name="SongTitle" 
-                onChange={this.songTitle} value={this.state.title}></input>
+                onChange={this.handleChange} value={this.state.title} />
                 <label>Artist</label>
-                <input type="text" className="form-control" id="artist">
-                onChange={this.songArtist} value={this.state.artist}</input>
+                <input type="text" className="form-control" name="SongArtist"
+                onChange={this.handleChange} value={this.state.artist} />
                 <label>Album</label>
-                <input type="text" className="form-control" id="album">
-                onChange={this.songAlbum} value={this.state.album}</input>
+                <input type="text" className="form-control" name="SongAlbum"
+                onChange={this.handleChange} value={this.state.album} />
                 <label>Release Date</label>
-                <input type="datetime-local" className="form-control" id="release_date">
-                onChange={this.songReleaseDate} value={this.state.release_date}</input>
+                <input type="datetime-local" className="form-control" name="SongReleaseDate"
+                onChange={this.handleChange} value={this.state.release_date} />
                 <label for="title">Genre</label>
-                <input type="text" className="form-control" id="genre">                
-                onChange={this.SongGenre} value={this.state.genre}</input>
+                <input type="text" className="form-control" name="SongGenre"                
+                onChange={this.handleChange} value={this.state.genre} />
 
               </div>
-              <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
+              <button type="submit"> Submit </button>
             </div>
             <div className="col-lg-4"></div>
           </div>
