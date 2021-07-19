@@ -6,7 +6,6 @@ class SongForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        // SongId:'',
         SongTitle:'',
         SongArtist:'',
         SongAlbum:'',
@@ -28,8 +27,7 @@ class SongForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        const song = {
-            // SongId: this.state.SongId,
+        const song = {         
             title: this.state.SongTitle,
             artist: this.state.SongArtist,
             album: this.state.SongAlbum,
@@ -55,10 +53,12 @@ class SongForm extends Component {
   render() {
     return (
       <React.Fragment>
+      
         <form onSubmit={this.handleSubmit}>
           <div className="container">
             <div className="col-lg-4"></div>
             <div className="col-lg-4">
+            <h1>Add Music</h1>
               <div className="form-group">
                 <label>Song Title</label>
                 <input type="text" className="form-control" name="SongTitle" 

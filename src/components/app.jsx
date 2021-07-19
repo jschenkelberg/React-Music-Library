@@ -3,6 +3,9 @@ import axios from 'axios';
 import Songs from './MusicTable';
 import "bootstrap/dist/css/bootstrap.min.css";
 import SongForm from './SongForm';
+import SearchBar from './SearchBar';
+
+
 
 
 
@@ -10,7 +13,8 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            songs : [] 
+            songs : [],
+            searchTerm: "" 
          }
     }
     componentDidMount() {
@@ -32,11 +36,11 @@ class App extends Component {
         this.setState 
             ({
             songs: [...this.state.songs, song],
-            title:'',
-            album:'',
-            artist:'',
-            release_date:'',
-            genre:''
+            // title:'',
+            // album:'',
+            // artist:'',
+            // release_date:'',
+            // genre:''
         });        
     }
 
@@ -51,11 +55,17 @@ class App extends Component {
     }
 
     render() { 
+        
         return ( 
             <div>
-                placeholder
-                <SongForm addSong={this.addSong}/>
-                <Songs songs={this.state.songs} delete={this.delete} />
+                <SearchBar />
+                <Songs songs={this.state.songs} delete={this.delete} />           
+                
+                
+                <SongForm addSong={this.addSong}/>           
+                
+              
+
                 
             </div>
          );

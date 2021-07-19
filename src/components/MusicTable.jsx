@@ -9,7 +9,7 @@ const Songs = (props) => {
       <table className="table table-striped">
         <thead>
           <tr>
-            <th scope="col">#</th>
+            <th scope="col"></th>
             <th scope="col">Title</th>
             <th scope="col">Artist</th>
             <th scope="col">Album</th>
@@ -18,6 +18,7 @@ const Songs = (props) => {
             <th scope="col">Likes</th>
           </tr>
         </thead>
+        
         <tbody>
           {props.songs.map((song) => (
             <tr>
