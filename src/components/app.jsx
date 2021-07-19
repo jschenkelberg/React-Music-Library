@@ -25,15 +25,19 @@ class App extends Component {
         
     }
     
-    addSong = (e) => {
-        axios.post("http://127.0.0.1:8000/music/")
-        .then(response => this.setState 
+    addSong = (song) => {
+        console.log (song)
+        console.log(this.state.songs)
+        axios.post(`http://127.0.0.1:8000/music/`, song)
+        this.setState 
             ({
-            songs: response.data
-        })
-            
-        );
-        
+            songs: [...this.state.songs, song],
+            title:'',
+            album:'',
+            artist:'',
+            release_date:'',
+            genre:''
+        });        
     }
 
     delete = (id) => {

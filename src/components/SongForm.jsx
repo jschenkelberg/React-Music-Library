@@ -6,7 +6,7 @@ class SongForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        SongId:'',
+        // SongId:'',
         SongTitle:'',
         SongArtist:'',
         SongAlbum:'',
@@ -29,24 +29,26 @@ class SongForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const song = {
-            SongId: this.state.SongId,
-            SongTitle: this.state.SongTitle,
-            SongArtist: this.state.SongArtist,
-            SongAlbum: this.state.SongAlbum,
-            SongReleaseDate: this.state.SongReleaseDate,
-            SongGenre: this.state.SongGenre
+            // SongId: this.state.SongId,
+            title: this.state.SongTitle,
+            artist: this.state.SongArtist,
+            album: this.state.SongAlbum,
+            release_date: this.state.SongReleaseDate,
+            genre: this.state.SongGenre
            
         }
         console.log(song)
         this.props.addSong(song);
             this.setState({
-                newSongId: this.state.newSongId,
+                // newSongId: this.state.newSongId,
                 newSongTitle: this.state.newSongTitle,
                 newSongArtist: this.state.newSongArtist,
                 newSongAlbum: this.state.newSongAlbum,
                 newSongReleaseDate: this.state.newSongReleaseDate,
-                newSongGenre: this.state.newSongGenre,
-            });
+                newSongGenre: this.state.newSongGenre
+            },
+            console.log(this)
+            );
     }
 
   
