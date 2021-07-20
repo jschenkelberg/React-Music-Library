@@ -3,6 +3,7 @@ import axios from 'axios';
 import Songs from './MusicTable';
 import "bootstrap/dist/css/bootstrap.min.css";
 import SongForm from './SongForm';
+import SearchBar from './SearchBar';
 
 
 
@@ -40,10 +41,26 @@ class App extends Component {
         });        
     }
 
-
+    filterSongs=(arrayOfNewSongs)=>{
+        this.setState({
+            songs: arrayOfNewSongs
+        })
+    }
 
     delete = (id) => {
         axios.delete(`http://127.0.0.1:8000/music/${id}/`)        
+        .then(res => {
+            console.log(res);
+            console.log(res.data);      
+          })
+          console.log(this)
+        this.getAllMusic();
+          
+    }
+
+    update = (id) => {
+        const song = this.props.songs
+        axios.put(`http://127.0.0.1:8000/music/${id}/`, song)        
         .then(res => {
             console.log(res);
             console.log(res.data);      
@@ -58,12 +75,9 @@ class App extends Component {
         
         return ( 
             <div>
-                {/* <SearchBar /> */}
-                <Songs songs={this.state.songs} delete={this.delete} />           
-                
-                
-                <SongForm addSong={this.addSong}/>           
-                
+                <SearchBar songs={this.state.songs} filterSongs = {this.filterSongs}/>
+                <Songs songs={this.state.songs} delete={this.delete} />                                 
+                <SongForm addSong={this.addSong}/>     
               
 
                 

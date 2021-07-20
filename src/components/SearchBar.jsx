@@ -1,70 +1,61 @@
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import React, { Component } from "react";
-// import { event } from "jquery";
+import "bootstrap/dist/css/bootstrap.min.css";
+import React, { Component, useState } from "react";
 
 
-// class SearchBar extends Component {
-//     constructor(props) {
-//         super(props);
-//         this. state = {
-//             searchTerm: ""
-//           }
-//           this.handleChange = this.handleChange.bind(this);
-//           this.handleSubmit = this.handleSubmit.bind(this);
-//     }
-
-//     filterSongs = () => {
-//         this.setState({
-//             searchTerm: event.target.value
-//         });
-//         console.log (event.target.value)
-//       }
-    
-//     updateFilter = event => {
-//         this.setState({
-//             filterBy: event.target.value
-//         })
-//         console.log(event.target.value)
-//         }
-//     searchBarFilterSongs = () => {
-//         return this.state.songs.filter(songs =>
-//             songs.title.toLowerCase().includes(this.state.searchTerm.toLowerCase() || 
-//             songs.artist.toLowerCase().includes(this.state.searchTerm.toLowerCase() ||
-//             songs.album.toLowerCase().includes(this.state.searchTerm.toLowerCase() ||
-//             songs.release_date.toLowerCase().includes(this.state.searchTerm.toLowerCase() ||
-//             songs.genre.toLowerCase().includes(this.state.searchTerm.toLowerCase())
-//         }}
 
 
-//     handleSubmit = (event) => {
-//         event.preventDefault();
-//         const song = {         
-            
-           
-//         }
-//         console.log(song)
+class SearchBar extends Component {
+    constructor(props) {
+        super(props);
+        this. state = {
+            searchTerm: ""
+          }
+          this.handleChange = this.handleChange.bind(this);
+          this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            searchTerm: event.target.value
+        });
+        console.log (event.target.value)
+      }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        let filteredResults = this.props.songs.filter(songs =>
+            songs.title.toLowerCase().includes(this.state.searchTerm.toLowerCase()) || 
+            songs.artist.toLowerCase().includes(this.state.searchTerm.toLowerCase()) ||
+            songs.album.toLowerCase().includes(this.state.searchTerm.toLowerCase()) ||
+            songs.release_date.toLowerCase().includes(this.state.searchTerm.toLowerCase()) ||
+            songs.genre.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+            this.props.filterSongs(filteredResults)
+    }
+
+    render() { 
+       
         
-           
-//     }
-//     render() { 
-//         const searchBarFilterSongs = this.searchBarFilterSongs()
-        
-//         return (
+        return (
             
-//         <div style={{ margin: "0 auto", marginLeft: "40%" }}>
-//         Search:{" "}
-//         <input
-//          type="text"
-//          placeholder="Type to search..."
-//          value={searchText}
-//          onChange={(e) => handleChange(e.target.value)}
-//         />
-//         </div>
+        <div style={{ margin: "0 auto", marginLeft: "40%" }}>
+        Search:{" "}
+        <form onSubmit={this.handleSubmit}>
+            <input
+            type="text"
+            placeholder="Type to search..."
+            value={this.state.searchTerm}
+            onChange={this.handleChange}
+            />
+            <input type="submit" value="filter"></input>
+        </form>
+       
+        </div>
            
-//           );
-//     }
-// }
- 
+          );
+    }
+}
+
+export default SearchBar
 
 
 
@@ -159,7 +150,6 @@
 //       setData(filteredData);
 //       console.log(filteredData);
 //       console.log(value);
-
 //     }
 //   };
 
@@ -176,5 +166,4 @@
 //   );
 // }
 
-// export default SearchBar;
 // export default SearchBar;
