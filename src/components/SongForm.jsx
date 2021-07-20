@@ -37,8 +37,7 @@ class SongForm extends Component {
         }
         console.log(song)
         this.props.addSong(song);
-            this.setState({
-                // newSongId: this.state.newSongId,
+            this.setState({               
                 newSongTitle: this.state.newSongTitle,
                 newSongArtist: this.state.newSongArtist,
                 newSongAlbum: this.state.newSongAlbum,

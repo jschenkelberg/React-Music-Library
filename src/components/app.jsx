@@ -3,7 +3,6 @@ import axios from 'axios';
 import Songs from './MusicTable';
 import "bootstrap/dist/css/bootstrap.min.css";
 import SongForm from './SongForm';
-import SearchBar from './SearchBar';
 
 
 
@@ -14,11 +13,13 @@ class App extends Component {
         super(props);
         this.state = { 
             songs : [],
-            searchTerm: "" 
+            filterData: "" 
          }
+        
     }
     componentDidMount() {
         this.getAllMusic();
+        
     }
 
     async getAllMusic(e) {
@@ -35,14 +36,11 @@ class App extends Component {
         axios.post(`http://127.0.0.1:8000/music/`, song)
         this.setState 
             ({
-            songs: [...this.state.songs, song],
-            // title:'',
-            // album:'',
-            // artist:'',
-            // release_date:'',
-            // genre:''
+            songs: [...this.state.songs, song],          
         });        
     }
+
+
 
     delete = (id) => {
         axios.delete(`http://127.0.0.1:8000/music/${id}/`)        
@@ -52,13 +50,15 @@ class App extends Component {
           })
           console.log(this)
           this.setState({})
+          this.forceUpdate()
+          
     }
 
     render() { 
         
         return ( 
             <div>
-                <SearchBar />
+                {/* <SearchBar /> */}
                 <Songs songs={this.state.songs} delete={this.delete} />           
                 
                 
