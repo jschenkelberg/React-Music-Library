@@ -38,7 +38,7 @@ class SearchBar extends Component {
         return (
             
         <div style={{ margin: "0 auto", marginLeft: "40%" }}>
-        Search:{" "}
+        
         <form onSubmit={this.handleSubmit}>
             <input
             type="text"

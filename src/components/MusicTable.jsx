@@ -2,10 +2,7 @@ import React, { Component } from "react";
 
 const Songs = (props) => {
   return (
-    <div>
-      <center>
-        <h1>Music Library</h1>
-      </center>
+    <div>  
       <table className="table table-striped">
         <thead>
           <tr>

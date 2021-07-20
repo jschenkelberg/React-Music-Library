@@ -4,6 +4,7 @@ import Songs from './MusicTable';
 import "bootstrap/dist/css/bootstrap.min.css";
 import SongForm from './SongForm';
 import SearchBar from './SearchBar';
+import Header from './Header';
 
 
 
@@ -75,6 +76,7 @@ class App extends Component {
         
         return ( 
             <div>
+                <Header />
                 <SearchBar songs={this.state.songs} filterSongs = {this.filterSongs}/>
                 <Songs songs={this.state.songs} delete={this.delete} />                                 
                 <SongForm addSong={this.addSong}/>     
