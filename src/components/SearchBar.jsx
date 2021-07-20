@@ -42,18 +42,21 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div className="text-center">
-        <form onSubmit={this.handleSubmit}>
+      <div className="search-bar-center">
+    
+        <form className="form-inline" onSubmit={this.handleSubmit}>
+        <h2>Search Music</h2>
           <input
             type="text"
             placeholder="Type to search..."
             value={this.state.searchTerm}
             onChange={this.handleChange}
           />
-          <input type="submit" value="Filter Results"></input>
+          <button type="submit">Filter</button>
         </form>
-        <hr />
-      </div>
+        
+                </div>
+      
       
     );
   }
