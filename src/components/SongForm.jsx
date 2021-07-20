@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import './SongForm.css';
 
 
 class SongForm extends Component {
@@ -52,36 +53,56 @@ class SongForm extends Component {
   render() {
     return (
       <React.Fragment>
+  <div className="center">
       
-        <form onSubmit={this.handleSubmit}>
-          <div className="container">
-            <div className="col-lg-4"></div>
-            <div className="col-lg-4">
-            <h1>Add Music</h1>
-              <div className="form-group">
-                <label>Song Title</label>
-                <input type="text" className="form-control" name="SongTitle" 
-                onChange={this.handleChange} value={this.state.title} />
-                <label>Artist</label>
-                <input type="text" className="form-control" name="SongArtist"
-                onChange={this.handleChange} value={this.state.artist} />
-                <label>Album</label>
-                <input type="text" className="form-control" name="SongAlbum"
-                onChange={this.handleChange} value={this.state.album} />
-                <label>Release Date</label>
-                <input type="datetime-local" className="form-control" name="SongReleaseDate"
-                onChange={this.handleChange} value={this.state.release_date} />
-                <label for="title">Genre</label>
-                <input type="text" className="form-control" name="SongGenre"                
-                onChange={this.handleChange} value={this.state.genre} />
+          <form className="form-inline" onSubmit={this.handleSubmit}>
+          <h2>Add Music</h2>
 
-              </div>
-              <button type="submit"> Submit </button>
-            </div>
-            <div className="col-lg-4"></div>
-          </div>
-       
+          <input
+            type="text"
+            name="SongTitle"
+            placeholder="Title"
+            onChange={this.handleChange}
+            value={this.state.title}
+          />
+
+          <input
+            type="text"
+            name="SongArtist"
+            placeholder="Artist"
+            onChange={this.handleChange}
+            value={this.state.artist}
+          />
+
+          <input
+            type="text"
+            name="SongAlbum"
+            placeholder="Album"
+            onChange={this.handleChange}
+            value={this.state.album}
+          />
+
+          <input
+            type="datetime-local"
+            name="SongReleaseDate"
+            placeholder="Release Date"
+            onChange={this.handleChange}
+            value={this.state.release_date}
+          />
+
+          <input
+            type="text"
+            name="SongGenre"
+            placeholder="Genre"
+            onChange={this.handleChange}
+            value={this.state.genre}
+          />
+
+          <button type="submit"> Submit </button>
         </form>
+</div>
+
+  <hr />
       </React.Fragment>
     );
   }

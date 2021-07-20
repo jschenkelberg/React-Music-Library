@@ -67,9 +67,8 @@ class App extends Component {
             console.log(res.data);      
           })
           console.log(this)
-          this.setState({})
-          this.forceUpdate()
-          
+          this.setState({});
+          this.getAllMusic()          
     }
 
     render() { 
@@ -77,9 +76,11 @@ class App extends Component {
         return ( 
             <div>
                 <Header />
-                <SearchBar songs={this.state.songs} filterSongs = {this.filterSongs}/>
+                <SongForm addSong={this.addSong}/> 
+                <br></br> 
+                <SearchBar songs={this.state.songs} filterSongs = {this.filterSongs}/>                
                 <Songs songs={this.state.songs} delete={this.delete} />                                 
-                <SongForm addSong={this.addSong}/>     
+                   
               
 
                 

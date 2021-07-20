@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 const Songs = (props) => {
   return (
-    <div>  
+    <div class="text-center">  
       <table className="table table-striped">
         <thead>
           <tr>
@@ -12,7 +12,7 @@ const Songs = (props) => {
             <th scope="col">Album</th>
             <th scope="col">Release Date</th>
             <th scope="col">Genre</th>
-            <th scope="col">Likes</th>
+            
           </tr>
         </thead>
         
@@ -25,8 +25,8 @@ const Songs = (props) => {
               <td>{song.album}</td>
               <td>{song.release_date}</td>
               <td>{song.genre}</td>
-              <td>{song.likes}</td>
-              <button onClick={() => props.delete(song.id)}>Delete</button>
+              
+              <button type="button" class="btn btn-outline-secondary" onClick={() => props.delete(song.id)}>Delete</button>
             </tr>
           ))}
         </tbody>
